@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'first_section_item.dart';
+import 'shopping_first_section_item.dart';
 
 //a class contains the design of the first section of the page using "PageView"
 class FirstSection extends StatelessWidget {

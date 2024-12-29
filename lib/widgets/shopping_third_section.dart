@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'third_section_item.dart';
+import 'shopping_third_section_item.dart';
 
 //a class contains the design of the third section of the page using "ListView"
 class ThirdSection extends StatelessWidget {

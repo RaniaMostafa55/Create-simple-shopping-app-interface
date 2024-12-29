@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'views/home_page.dart';
+import 'package:simple_shopping_app_interface/views/signup_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       //to remove the debug sign
       debugShowCheckedModeBanner: false,
       title: 'Simple Shopping App Interface',
-      home: MyHomePage(),
+      home: SignUpPage(),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'second_section_item.dart';
+import 'shopping_second_section_item.dart';
 
 //a class contains the design of the second section of the page using "GridView"
 class SecondSection extends StatelessWidget {
