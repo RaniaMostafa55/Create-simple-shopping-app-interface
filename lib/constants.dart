@@ -4,15 +4,15 @@ class Constants {
   //the variables and lists used in the app
   static PageController controller = PageController();
   static List<String> firstSectionProductsImages = [
-    "product1",
-    "product2",
-    "product3",
+    "https://images.pexels.com/photos/1667071/pexels-photo-1667071.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/892649/pexels-photo-892649.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/6724353/pexels-photo-6724353.jpeg?auto=compress&cs=tinysrgb&w=600",
   ];
   static List<String> secondSectionProductsImages = [
-    "product4",
-    "product5",
-    "product6",
-    "product7"
+    "https://images.pexels.com/photos/4735904/pexels-photo-4735904.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/2720447/pexels-photo-2720447.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/8101512/pexels-photo-8101512.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/6167446/pexels-photo-6167446.jpeg?auto=compress&cs=tinysrgb&w=600"
   ];
   static List<String> secondSectionProductsNames = [
     "Product 1",
@@ -21,11 +21,11 @@ class Constants {
     "Product 4"
   ];
   static List<String> thirdSectionProductsImages = [
-    "product1",
-    "product2",
-    "product3",
-    "product5",
-    "product6"
+    "https://images.pexels.com/photos/1667071/pexels-photo-1667071.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/892649/pexels-photo-892649.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/6724353/pexels-photo-6724353.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/2720447/pexels-photo-2720447.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/8101512/pexels-photo-8101512.jpeg?auto=compress&cs=tinysrgb&w=600",
   ];
   static List<String> thirdSectionProductsNames = [
     "Product 1",

@@ -20,8 +20,8 @@ class ThirdSectionItem extends StatelessWidget {
               clipBehavior: Clip.antiAliasWithSaveLayer,
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(15)),
-              child: Image.asset(
-                "assets/$imageName.jpg",
+              child: Image.network(
+                imageName,
                 fit: BoxFit.cover,
                 height: MediaQuery.of(context).size.height * 0.15,
                 width: MediaQuery.of(context).size.height * 0.2,

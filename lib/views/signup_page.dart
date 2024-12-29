@@ -176,11 +176,34 @@ class _SignUpPageState extends State<SignUpPage> {
                   Constants.emailController.clear();
                   Constants.passwordController.clear();
                   Constants.confirmPasswordController.clear();
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return const MyHomePage();
-                    },
-                  ));
+                  //use "Navigator.push" to navigate to another page
+                  Navigator.push(
+                      context,
+                      //use "PageRouteBuilder" to identify the page which will navigate to and the way of transition
+                      PageRouteBuilder(
+                          //identify the page which we want to navigate to
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  const MyHomePage(),
+                          //identify how the transition will be during navigation
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            //determine the speed of transition "easeInOut" to start with low speed, then high, then low again
+                            var curvedAnimation = CurvedAnimation(
+                              parent: animation,
+                              curve: Curves.easeInOut,
+                            );
+                            //create fade out and in transition
+                            return FadeTransition(
+                              //"curvedAnimation" is put in "opacity" parameter to play the fade transition as mentioned before, with low speed, then high, then low again
+                              opacity: curvedAnimation,
+                              //child holds the page we want to navigate to
+                              child: child,
+                            );
+                          },
+                          //determine the duration of time of the transition in milliseconds
+                          transitionDuration:
+                              const Duration(milliseconds: 850)));
                 },
                 child: const Text("close"))
           ],

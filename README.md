@@ -1,29 +1,18 @@
-# simple_shopping_app_interface
+# simple_shopping_app
 
 A new Flutter project.
 
-## Sign Up page task
+## Add animation to your shopping app
 
-The next step in this project is to create the "Sign up" page, and to do that, I created two new widgets:
-- The first widget is for the "textFormField" which called "CustomTextField" to take inputs from user, it has some needed variables like:
-    1. "controller" to hold the value that the user entered
-    2. "label" to tell the user what to enter
-    3. "prefix" to detect the prefix icon of the textFormField
-    4. "validator" to ensure that the input the user entered is valid and satisfy requirements and if not, an error message will show up and the error will be added to a list of errors as a string
-    5. "onSuffixPressed" is to detect what to do when pressing the suffix icon if found
-    6. "obscureText" to check if the text the user will enter need to be secured or not and the default value of it is set to "false"
-    7. "isPassword" to check if it's a password field or not in order to add the "visibility" icon if it's a password field and the default value of it is set to "false"
-- The second widget is for the "ElevatedButton" which called "CustomButton" to enable the user to do a certain action like "Signing up", it has some needed variables like:
-    1. "onPressed" to detect what to do when pressing the button
-    2. "text" to detect the text on the button
-- In the "SignUpPage" page, I used all the created widgets to form the page as following:
-    1. First of all, I used "SingleChildScrollView" widget to make the page scrollable and avoid overflow error
-    2. As a child, I added the "Form" widget and passed "formKey" variable from "Constants" class to enable me to validate the user inputs
-    3. As a child, I put "Column" widget to add all the previously created widgets as following:
-        * "TitleText" to put the title of the page which is "Sign Up" 
-        * "CustomTextField" to ask the user to enter his full name
-        * "CustomTextField" to ask the user to enter his email address
-        * "CustomTextField" to ask the user to enter his password
-        * "CustomTextField" to ask the user to confirm his password
-        * "CustomButton" to valudate the user inputs, if they meet all the requirements an alert dialog will show up by calling function "signUpDialog" which containg a "close" button that navigates to the home page if pressed, but if even one requirement is not met, a "SnackBar" will show up telling us about the errors found using a "ListView.builder" which iterates in the "errors" list and print them as texts and each time the snackBar shows, the "errors" list will be clear to avoid duplicating a certain error through this line of code "Constants.errors.clear()"
-    4. In the end of the page code, "signUpDialog" function is created to show up an "AlertDialog" containing a message tells the user that he signed up successfully with a "close" button, if this button is pressed, all the textFormFields will be clear to enable user to enter other data and navigate back to remove this dialog from stack before navigating to the home page to add it into the app stack
+The next step in this project is to add animation by adding fade transition while navigation from sign up page to home page
+In the "onPressed" parameter of the "ElevatedButton" which called "close" in the "AlertDialog", I did the following steps:
+1. "Navigator.push" is used to navigate to another page when pressing "close" button
+2. "context" is sent as a parameter to determine the page we are currently located in
+3. "PageRouteBuilder" is used to identify the page which we will navigate to, and the way of transition
+4. Three parameters were passed to "PageRouteBuilder":
+    - "pageBuilder" to build the page we need to navigate to by returning the page name and send some parameters in an anonymous function:
+        * "context" to determine the page we are currently located in
+        * "animation" to determine that animation starts with value 0 and ends with value 1
+        * "secondaryAnimation" to add effects on the page we navigate from, if we want
+    - "transitionsBuilder" to identify how the transition will be during navigation, it took an anonymous function which took the same parameters as "pageBuilder" in addition to "child" which refers to the page we will navigate to, in the body of the function, an object "acurvedAnimation" was created from class "CurvedAnimation" to determine how we want the transtion speed to be, in "parent" parameter we passed "animation" to tell that transition starts with value 0 as the new page will be invisible and ends with value 1 to be completely visible. In "curve" parameter we passed "Curves.easeInOut" which means that the transition will start with low speed, then high, then low again. Finally, this anonymous function will return "FadeTransition" to make fade out and in transition by putting the "curvedAnimation" object into "opacity" parameter and "child" into "child" parameter to determine the page we will navigate to
+    - "transitionDuration" to determine the duration of time which the transition will take, it took "Duration", in which, I determined the duraion of time in milliseconds to be 850
