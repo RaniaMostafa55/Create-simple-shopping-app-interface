@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_shopping_app_interface/views/home_page.dart';
 import 'package:simple_shopping_app_interface/widgets/custom_button.dart';
@@ -30,24 +31,24 @@ class _SignUpPageState extends State<SignUpPage> {
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.2,
                     bottom: MediaQuery.of(context).size.height * 0.05),
-                child: const TitleText("Sign Up", 40),
+                child: TitleText(tr('sign_up'), 40),
               ),
               Padding(
                   padding: const EdgeInsets.all(15.0),
                   //call "CustomTextField" to ask the user to enter his full name and validate his input
                   child: CustomTextField(
                     controller: Constants.fullnameController,
-                    label: "Full Name",
+                    label: tr('full_name'),
                     prefix: Icons.person,
                     //use "validator" to check if the user input meets requirements and if an error found, it will be added to "errors" list
                     validator: (value) {
                       if (value!.isEmpty) {
-                        Constants.errors.add("Please enter your full name");
-                        return "Please enter your full name";
+                        Constants.errors.add(tr("please_enter_your_full_name"));
+                        return tr("please_enter_your_full_name");
                       } else if (!RegExp(r'[A-Z]').hasMatch(value[0])) {
                         Constants.errors
-                            .add("First letter should be capitalized");
-                        return "First letter should be capitalized";
+                            .add(tr("first_letter_should_be_capitalized"));
+                        return tr("first_letter_should_be_capitalized");
                       } else {
                         return null;
                       }
@@ -58,13 +59,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   //call "CustomTextField" to ask the user to enter his email address and validate his input
                   child: CustomTextField(
                     controller: Constants.emailController,
-                    label: "Email Address",
+                    label: tr("email_address"),
                     prefix: Icons.email,
                     //use "validator" to check if the user input meets requirements and if an error found, it will be added to "errors" list
                     validator: (value) {
                       if (!value!.contains("@")) {
-                        Constants.errors.add("Please enter a valid email");
-                        return "Please enter a valid email";
+                        Constants.errors.add(tr("please_enter_a_valid_email"));
+                        return tr("please_enter_a_valid_email");
                       } else {
                         return null;
                       }
@@ -75,14 +76,15 @@ class _SignUpPageState extends State<SignUpPage> {
                   //call "CustomTextField" to ask the user to enter his password and validate his input
                   child: CustomTextField(
                     controller: Constants.passwordController,
-                    label: "Password",
+                    label: tr("password"),
                     prefix: Icons.lock,
                     //use "validator" to check if the user input meets requirements and if an error found, it will be added to "errors" list
                     validator: (value) {
                       if (value!.length < 6) {
-                        Constants.errors.add(
-                            "Password should contain at least 6 characters");
-                        return "Password should contain at least 6 characters";
+                        Constants.errors.add(tr(
+                            "password_should_contain_at_least_6_characters"));
+                        return tr(
+                            "password_should_contain_at_least_6_characters");
                       } else {
                         return null;
                       }
@@ -101,16 +103,17 @@ class _SignUpPageState extends State<SignUpPage> {
                   //call "CustomTextField" to ask the user to confirm his password and validate his input
                   child: CustomTextField(
                     controller: Constants.confirmPasswordController,
-                    label: "Confirm Password",
+                    label: tr("confirm_password"),
                     prefix: Icons.lock,
                     //use "validator" to check if the user input meets requirements and if an error found, it will be added to "errors" list
                     validator: (value) {
                       if (value!.isEmpty) {
-                        Constants.errors.add("Please confirm your password");
-                        return "Please confirm your password";
+                        Constants.errors
+                            .add("Please confirm your password".tr());
+                        return "Please confirm your password".tr();
                       } else if (value != Constants.passwordController.text) {
-                        Constants.errors.add("Passwords don't match");
-                        return "Passwords don't match";
+                        Constants.errors.add("Passwords don't match".tr());
+                        return "Passwords don't match".tr();
                       } else {
                         return null;
                       }
@@ -150,7 +153,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     }
                   },
-                  text: "Sign up")
+                  text: tr("sign_up"))
             ],
           ),
         ),
@@ -164,8 +167,8 @@ class _SignUpPageState extends State<SignUpPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text("Success"),
-          content: const Text("account created successfully"),
+          title: Text("Success".tr()),
+          content: Text("account created successfully".tr()),
           actions: [
             //a "close button", if the user pressed that button all the textfields will be clear and navigate to "MyHomePage"
             ElevatedButton(
@@ -205,7 +208,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           transitionDuration:
                               const Duration(milliseconds: 850)));
                 },
-                child: const Text("close"))
+                child: Text("close".tr()))
           ],
         );
       },

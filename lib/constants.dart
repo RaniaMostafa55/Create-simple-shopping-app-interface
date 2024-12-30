@@ -14,12 +14,6 @@ class Constants {
     "https://images.pexels.com/photos/8101512/pexels-photo-8101512.jpeg?auto=compress&cs=tinysrgb&w=600",
     "https://images.pexels.com/photos/6167446/pexels-photo-6167446.jpeg?auto=compress&cs=tinysrgb&w=600"
   ];
-  static List<String> secondSectionProductsNames = [
-    "Product 1",
-    "Product 2",
-    "Product 3",
-    "Product 4"
-  ];
   static List<String> thirdSectionProductsImages = [
     "https://images.pexels.com/photos/1667071/pexels-photo-1667071.jpeg?auto=compress&cs=tinysrgb&w=600",
     "https://images.pexels.com/photos/892649/pexels-photo-892649.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -27,13 +21,21 @@ class Constants {
     "https://images.pexels.com/photos/2720447/pexels-photo-2720447.jpeg?auto=compress&cs=tinysrgb&w=600",
     "https://images.pexels.com/photos/8101512/pexels-photo-8101512.jpeg?auto=compress&cs=tinysrgb&w=600",
   ];
-  static List<String> thirdSectionProductsNames = [
+  static List<String> productsNamesEnglish = [
     "Product 1",
     "Product 2",
     "Product 3",
     "Product 4",
     "Product 5"
   ];
+  static List<String> productsNamesArabic = [
+    "منتج 1",
+    "منتج 2",
+    "منتج 3",
+    "منتج 4",
+    "منتج 5",
+  ];
+
 //create some controllers for textFields
   static TextEditingController fullnameController = TextEditingController();
   static TextEditingController emailController = TextEditingController();

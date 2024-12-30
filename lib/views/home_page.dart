@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_shopping_app_interface/widgets/title_text.dart';
 import 'package:simple_shopping_app_interface/widgets/shooping_first_section.dart';
@@ -28,11 +29,21 @@ class _MyHomePageState extends State<MyHomePage> {
           },
         ),
         backgroundColor: Colors.indigo,
-        title: const Text(
-          "Shopping App",
-          style: TextStyle(color: Colors.white),
+        title: Text(
+          "Home Page".tr(),
+          style: const TextStyle(color: Colors.white),
         ),
         centerTitle: true,
+        actions: [
+          //a button to convert language of the app
+          IconButton(
+            onPressed: () {
+              translate();
+            },
+            icon: const Icon(Icons.translate),
+            color: Colors.white,
+          )
+        ],
       ),
       //make the page scrollable
       body: SingleChildScrollView(
@@ -41,25 +52,42 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-                padding: EdgeInsets.all(8.0),
+            Padding(
+                padding: const EdgeInsets.all(8.0),
                 //call the widget which contains a title styled text
-                child: TitleText("Our Products", 20)),
+                child: TitleText("Our Products".tr(), 20)),
             //call the widget which contains the first section of the page made with "PageView"
             FirstSection(
                 Constants.controller, Constants.firstSectionProductsImages),
             //call the widget which contains the second section of the page made with "GridView"
-            SecondSection(Constants.secondSectionProductsNames,
+            SecondSection(
+                //check if the current language of the app is Arabic, then use the Arabic names of products list, otherwise use the English one
+                context.locale == const Locale('en', 'US')
+                    ? Constants.productsNamesEnglish
+                    : Constants.productsNamesArabic,
                 Constants.secondSectionProductsImages),
-            const Padding(
-                padding: EdgeInsets.only(bottom: 8.0, left: 8),
-                child: TitleText("Hot Offers", 20)),
+            Padding(
+                padding: const EdgeInsets.only(bottom: 8.0, left: 8, right: 8),
+                child: TitleText("Hot Offers".tr(), 20)),
             //call the widget which contains the third section of the page made with "ListView"
-            ThirdSection(Constants.thirdSectionProductsNames,
+            ThirdSection(
+                //check if the current language of the app is Arabic, then use the Arabic names of products list, otherwise use the English one
+                context.locale == const Locale('en', 'US')
+                    ? Constants.productsNamesEnglish
+                    : Constants.productsNamesArabic,
                 Constants.thirdSectionProductsImages)
           ],
         ),
       ),
     );
+  }
+
+// a method to convert the language of the app to English or Arabic
+  void translate() {
+    if (context.locale == const Locale('en', 'US')) {
+      context.setLocale(const Locale('ar', 'EG'));
+    } else {
+      context.setLocale(const Locale('en', 'US'));
+    }
   }
 }
